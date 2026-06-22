@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>彩经网 · 行业数字资源平台</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background-color: #f4f6f8;
+      color: #1e2a3a;
+      line-height: 1.7;
+      padding: 2rem 1rem;
+    }
+
+    .container {
+      max-width: 1024px;
+      margin: 0 auto;
+    }
+
+    /* hero 横幅卡片 */
+    .hero {
+      background: linear-gradient(145deg, #ffffff 0%, #f9fbfd 100%);
+      border: 1px solid #e2e8f0;
+      border-radius: 28px;
+      box-shadow: 0 12px 28px -8px rgba(0, 0, 0, 0.06);
+      padding: 2.8rem 2.5rem;
+      margin-bottom: 2.5rem;
+      transition: box-shadow 0.2s;
+    }
+
+    .hero:hover {
+      box-shadow: 0 16px 36px -12px rgba(0, 0, 0, 0.08);
+    }
+
+    .hero h1 {
+      font-size: 2.2rem;
+      font-weight: 500;
+      letter-spacing: -0.025em;
+      color: #0f1a2b;
+      margin-bottom: 0.35rem;
+      border-left: 5px solid #3b82f6;
+      padding-left: 1.2rem;
+    }
+
+    .hero .sub {
+      font-size: 1.1rem;
+      color: #4a5a72;
+      border-left: 5px solid #3b82f6;
+      padding-left: 1.2rem;
+      margin-top: 0.25rem;
+      font-weight: 400;
+      opacity: 0.75;
+    }
+
+    /* 通用卡片样式 —— 浅灰背景、细边框、柔和阴影 */
+    .card {
+      background: #ffffff;
+      border: 1px solid #e5eaef;
+      border-radius: 24px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03), 0 1px 3px rgba(0, 0, 0, 0.02);
+      padding: 2rem 2.2rem;
+      margin-bottom: 2rem;
+      transition: box-shadow 0.15s ease;
+    }
+
+    .card:hover {
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+    }
+
+    .card h2 {
+      font-size: 1.4rem;
+      font-weight: 500;
+      margin-bottom: 1rem;
+      color: #13273f;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      border-bottom: 1px solid #ecf0f5;
+      padding-bottom: 0.55rem;
+    }
+
+    .card h2 .marker {
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      background: #3b82f6;
+      border-radius: 12px;
+      margin-right: 6px;
+    }
+
+    .card p {
+      margin-bottom: 0.8rem;
+      color: #2a3b4e;
+      font-size: 0.98rem;
+    }
+
+    .card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .card ul {
+      list-style: none;
+      padding: 0;
+      margin-top: 0.5rem;
+    }
+
+    .card li {
+      padding: 0.4rem 0 0.4rem 1.6rem;
+      position: relative;
+      color: #2f4057;
+      font-size: 0.96rem;
+    }
+
+    .card li::before {
+      content: "—";
+      position: absolute;
+      left: 0;
+      color: #8ea0b7;
+      font-weight: 300;
+    }
+
+    /* 背景说明区（独立于卡片，作为分割） */
+    .background-note {
+      background: #f0f3f7;
+      border-radius: 24px;
+      padding: 1.8rem 2.2rem;
+      margin-bottom: 2rem;
+      border: 1px solid #dfe5ed;
+      box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.02);
+    }
+
+    .background-note p {
+      color: #1f3145;
+      font-size: 0.96rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .background-note strong {
+      font-weight: 500;
+      color: #0b1e32;
+    }
+
+    /* 页尾访问提示 */
+    .footer-access {
+      background: #ffffff;
+      border: 1px solid #e2e9f0;
+      border-radius: 28px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+      padding: 1.8rem 2.2rem;
+      text-align: center;
+      margin-top: 0.5rem;
+    }
+
+    .footer-access p {
+      color: #1c2d44;
+      font-size: 1rem;
+      font-weight: 400;
+    }
+
+    .footer-access a {
+      color: #1d4f8b;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.15s;
+    }
+
+    .footer-access a:hover {
+      border-bottom-color: #1d4f8b;
+    }
+
+    .fine-print {
+      font-size: 0.8rem;
+      color: #6a7d92;
+      margin-top: 0.9rem;
+      opacity: 0.7;
+    }
+
+    /* 响应式细节 */
+    @media (max-width: 640px) {
+      body {
+        padding: 1rem 0.75rem;
+      }
+
+      .hero {
+        padding: 1.8rem 1.2rem;
+      }
+
+      .hero h1 {
+        font-size: 1.7rem;
+        padding-left: 0.8rem;
+      }
+
+      .card {
+        padding: 1.5rem 1.2rem;
+      }
+
+      .card h2 {
+        font-size: 1.2rem;
+      }
+
+      .background-note {
+        padding: 1.2rem 1rem;
+      }
+
+      .footer-access {
+        padding: 1.4rem 1rem;
+      }
+    }
+
+    @media (min-width: 768px) {
+      .two-column {
+        display: flex;
+        gap: 2rem;
+      }
+
+      .two-column .card {
+        flex: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- hero 横幅 -->
+    <div class="hero">
+      <h1>数据 · 资讯 · 方法</h1>
+      <div class="sub">面向数字趋势的实用资源平台</div>
+    </div>
+
+    <!-- 背景说明 -->
+    <div class="background-note">
+      <p><strong>彩经网</strong> 定位于整合行业动态、数据解读与分析工具，为关注趋势变化的用户提供结构化的信息参考。平台内容涵盖市场观察、指标跟踪、方法讨论及常见问题索引，不构成任何投资建议或决策依据。</p>
+      <p style="margin-bottom: 0;">站点以“清晰分类、定期更新、可追溯”为整理原则，帮助访问者快速定位所需内容。</p>
+    </div>
+
+    <!-- 三段式自然介绍（杂志专题感） -->
+    <div class="two-column">
+      <div class="card">
+        <h2><span class="marker"></span>信息分类与结构</h2>
+        <p>基于主题与实用场景，将内容划分为多个独立模块：趋势数据、术语说明、方法比较及场景案例。每个模块均保持相对独立，便于按需查阅。</p>
+        <p>数据部分以图表与简表为主，辅以文字注解；资讯部分侧重行业动态与机制变化，更新频率稳定。</p>
+      </div>
+      <div class="card">
+        <h2><span class="marker"></span>常用工具与参考</h2>
+        <p>提供若干在线工具入口与计算参考，覆盖概率换算、组合统计、回溯查询等基础需求。工具均基于公开算法与通用模型开发，使用者可根据自身判断做进一步验证。</p>
+        <p>同时收录多个领域的关键词索引，以标准化条目降低理解门槛。</p>
+      </div>
+    </div>
+
+    <!-- 第三段介绍（加宽卡片） -->
+    <div class="card">
+      <h2><span class="marker"></span>场景化内容索引</h2>
+      <p>平台采用场景标签（例如“趋势分析”、“概念辨析”、“指标解读”）对内容进行二次组织，访问者可依据自身关注的主题快速筛选相关文章与数据页。</p>
+      <ul>
+        <li>趋势分析：中长期走势、分布特征、周期讨论</li>
+        <li>概念辨析：术语定义、边界说明、常见混淆点</li>
+        <li>指标解读：核心统计量、计算方法、适用条件</li>
+      </ul>
+      <p style="margin-top: 0.8rem;">所有索引均指向具体内容页，不包含未经验证的结论或承诺。</p>
+    </div>
+
+    <!-- 页尾访问提示 - 自然嵌入链接 -->
+    <div class="footer-access">
+      <p>若希望进一步获取结构化的行业数据与解析内容，可前往 <a href="https://url-caijing.com">彩经网</a> 浏览各模块详情。</p>
+      <p class="fine-print">内容仅供参考，不构成任何形式的保证或建议。</p>
+    </div>
+
+  </div>
+</body>
+</html>
